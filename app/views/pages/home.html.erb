@@ -1,2 +1,18 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h2>Yummy</h2>
+<p>O que você procura</p>
+
+<h2>Restaurantes</h2>
+<%= link_to 'Restaurantes', root_path %>
+<%= link_to 'Bares', root_path %>
+<%= link_to root_path do %>
+<i class="fa-solid fa-house"></i>
+<% end %>
+<%= link_to root_path do %>
+<i class="fa-regular fa-heart"></i>
+<% end %>
+<%= link_to root_path do %>
+<i class="fa-solid fa-magnifying-glass"></i>
+<% end %>
+<%= link_to root_path do %>
+<i class="fa-solid fa-user"></i>
+<% end %>

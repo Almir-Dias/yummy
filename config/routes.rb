@@ -9,4 +9,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-end
+  get '/places/:id', to: 'places#show'
+  get '/places', to: 'places#index'
+  get '/favorites', to: 'favorites#index'
+  delete 'favorites/:id', to: 'favorites#destroy'
+  end
