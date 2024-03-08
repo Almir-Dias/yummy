@@ -132,6 +132,7 @@ GEM
       sassc (~> 2.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    gmaps4rails (2.1.2)
     i18n (1.14.3)
       concurrent-ruby (~> 1.0)
       racc (~> 1.7)
@@ -265,10 +266,6 @@ GEM
     thor (1.3.1)
     tilt (2.3.0)
     timeout (0.4.1)
-    turbo-rails (2.0.4)
-      actionpack (>= 6.0.0)
-      activejob (>= 6.0.0)
-      railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     warden (1.2.9)
@@ -305,6 +302,7 @@ DEPENDENCIES
   dotenv-rails
   error_highlight (>= 0.4.0)
   font-awesome-sass (~> 6.1)
+  gmaps4rails
   importmap-rails
   jbuilder
   pg (~> 1.1)
@@ -315,7 +313,6 @@ DEPENDENCIES
   simple_form!
   sprockets-rails
   stimulus-rails
-  turbo-rails
   tzinfo-data
   web-console
 
