@@ -1,6 +1,49 @@
-<h2>Yummy</h2>
-<p>O que você procura</p>
+<div class="jumbotron">
+  <h1 class="text-center-home">Yummy</h1>
+  <p class="subtext">O que você procura?</p>
 
+<div class="btn-container">
+  <div class="row">
+    <div class="col text-center">
+      <%= link_to root_path, class: 'btn btn-light' do %>
+        <div class='text-start ms-4'>
+          <i class="fa-solid fa-utensils" style="color: #000000;"></i>
+          Restaurante
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col text-center">
+      <%= link_to root_path, class: 'btn btn-light' do %>
+        <div class='text-start ms-4'>
+          <i class="fa-solid fa-beer-mug-empty" style="color: #000000;"></i>
+          Bares
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+</div>
+  <div class="text">
+    <h3 class="text">Restaurantes que você pode gostar</h3>
+    <p class="paragraph">Mais restaurantes em São Paulo</p>
+  </div>
+    <%= link_to root_path do %>
+      <i class="fa-solid fa-house"></i>
+    <% end %>
+    <%= link_to root_path do %>
+      <i class="fa-regular fa-heart"></i>
+    <% end %>
+    <%= link_to root_path do %>
+      <i class="fa-solid fa-magnifying-glass"></i>
+    <% end %>
+    <%= link_to root_path do %>
+     <i class="fa-solid fa-user"></i>
+    <% end %>
+
+<div data-controller="google-places"></div>
 <h2>Restaurantes</h2>
 <%= link_to 'Restaurantes', root_path %>
 <%= link_to 'Bares', root_path %>

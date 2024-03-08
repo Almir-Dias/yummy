@@ -1,1 +1,46 @@
 // Specific CSS for your home-page
+.jumbotron {
+    background: linear-gradient(to top, #EC610A, #BE3144);
+    padding: 20px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.text-center-home {
+    margin: 20px;
+    font-family: "Pacifico", sans-serif;
+    color: #ffff;
+    font-size: 80px;
+    text-align: center;
+}
+
+.subtext {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 200;
+    text-align: center;
+    color: #ffff;
+    font-size: 20px;
+}
+
+.btn-container {
+    font-family:'Montserrat', sans-serif, bold;
+}
+
+.btn-container a {
+    margin-bottom: 15px;
+    width: 200px;
+    border-radius: 20px;
+    font-weight:400;
+}
+
+.text {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    margin: 10px;
+}
+
+.paragraph {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    margin: 10px;
+}
