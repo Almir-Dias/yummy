@@ -1,0 +1,30 @@
+<div class="row justify-content-center" data-controller="geolocation">
+  <div class="col-sm-8 my-3">
+    <%= form_with url: restaurants_path, method: :get, class: "d-flex" do %>
+      <%= hidden_field_tag :lat, nil, "data-geolocation-target": 'lat' %>
+      <%= hidden_field_tag :lng, nil, "data-geolocation-target": 'lng' %>
+
+      <%= select_tag :name, options_for_select(['pizza', 'buffet', 'sushi', 'árabe','hambúrger','grego']) %>
+      <%= text_field_tag :name,
+            params[:name],
+            class: "form-control",
+            placeholder: "Type a restaurant type"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+<ul>
+  <% @spots.each do |spot| %>
+    <% spot_complete = @client.spot(spot.reference) %>
+    <li>
+      <%= spot_complete.name %> - Nota: <%= spot_complete.rating %> - <%= spot_complete.formatted_address %>
+      <%= image_tag spot_complete.photos[0].fetch_url(200) if spot_complete.photos.present? %>
+    </li>
+  <% end %>
+</ul>
+
+
+<div></div>
+<%= button_tag "Clique Aqui", id: "meuBotao", data: { controller: "click", action: "click->click#handleClick" } %>

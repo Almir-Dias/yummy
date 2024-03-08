@@ -33,6 +33,7 @@ export default class extends Controller {
       .then(response => response.text())
       .then((data) => {
         // this.listTarget.outerHTML = data;
+        
         console.log(data);
     })
   }
@@ -43,3 +44,9 @@ export default class extends Controller {
 
   }
 }
+
+  // handleClick() {
+  //   alert("Botão clicado!");
+  //   // Adicione aqui o código que deseja executar quando o botão for clicado
+  //   console.log("botão clicado")
+  // }
