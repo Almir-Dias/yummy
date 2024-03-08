@@ -6,13 +6,29 @@ export default class extends Controller {
 
   connect() {
     // Vai todo o codigo que vai ser executado quando o controlador carrega, fetch sera carregado
-    const url = `https://places.googleapis.com/v1/places:searchNearby`
-    fetch(url, {headers: 
-      {"Accept": "text/plain",
-      "Method": "POST",
-      "mode": "no-cors",
-      "X-Goog-Api-Key": "AIzaSyBrKLcoXPvH7BeUDFM71rQqjELGp7I_etM",
-      "X-Goog-FieldMask": "places.displayName, places.formattedAddress, places.photos, places.allowDogs"}
+    const proxyurl = "https://cors-anywhere.herokuapp.com/";
+    const url = `https://places.googleapis.com/v1/places:searchNearby`;
+    const body = {
+      "includedTypes": ["restaurant"],
+      "locationRestriction": {
+          "circle": {
+              "center": {
+                  "latitude": -23.58398991363618,
+                  "longitude": -46.685895111093835
+              },
+          "radius": 100.0
+          }
+      }
+    };
+
+    fetch(proxyurl + url, {
+      method: "POST",
+      headers: {"Accept": "text/plain",
+        "mode": "no-cors",
+        "X-Goog-Api-Key": "AIzaSyBrKLcoXPvH7BeUDFM71rQqjELGp7I_etM",
+        "X-Goog-FieldMask": "places.displayName"
+      },
+      body: JSON.stringify(body)
     })
       .then(response => response.text())
       .then((data) => {
@@ -20,10 +36,10 @@ export default class extends Controller {
         console.log(data);
     })
   }
-  
+
   // apos  o filtro, fetch sera carregado
-  
+
   loadFilters() {
-    
+
   }
 }
