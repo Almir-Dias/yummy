@@ -1,9 +1,47 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+Restaurant.destroy_all
+Cuisine.destroy_all
+
+Cuisine.create!(name: "japones")
+Cuisine.create!(name: "pizza")
+Cuisine.create!(name: "hamburguer")
+Cuisine.create!(name: "italiano")
+Cuisine.create!(name: "mexicano")
+Cuisine.create!(name: "vegano")
+
+
+client = GooglePlaces::Client.new(ENV['GOOGLE_API_KEY'])
+
+
+positions = [[-23.5465, -46.6908],
+             [-23.566770, -46.693825]]
+
+
+positions.each do |position|
+  Cuisine.all.each do |cuisine|
+    puts "buscando restaurante #{cuisine.name}"
+
+    spots = client.spots(position[0], position[1], :types => ['restaurant', 'food'], name: cuisine.name)
+    puts "encontrado #{spots.count} restaurantes"
+
+    spots.each do |spot|
+      spot_complete = client.spot(spot.reference)
+      restaurant = Restaurant.new
+      restaurant.name = spot_complete.name
+      restaurant.address = spot_complete.formatted_address
+      restaurant.rating = spot_complete.rating
+      restaurant.photo_url = spot_complete.photos[0].fetch_url(200) if spot_complete.photos.present?
+      restaurant.latitude = spot_complete.lat
+      restaurant.longitude = spot_complete.lng
+      restaurant.places_reference = spot_complete.reference
+      if restaurant.save
+        puts "criando restaurante #{spot_complete.name}"
+      end
+
+      restaurant.cuisines << cuisine
+      restaurant.save
+      if restaurant.save
+        puts "adicionou restaurante #{spot_complete.name} na cuisine #{cuisine.name} "
+      end
+    end
+  end
+end

@@ -1,0 +1,30 @@
+/* .card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  overflow-x: auto; /* Enable horizontal scrolling */
+  /* Add other styling as needed */
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  }
+
+.restaurant-card {
+  display: flex;
+  margin-bottom: 1.5rem;
+}
+
+.card-image {
+  img {
+    border-radius: 15%;
+    height: 100px;
+    width: 100px;
+  }
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}

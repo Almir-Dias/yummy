@@ -4,9 +4,9 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
 
   static targets = ['lat', 'lng'];
-  
+
   connect() {
-    
+    console.log("oie")
     console.log(this.latTarget)
     console.log(this.lngTarget)
 
@@ -14,7 +14,7 @@ export default class extends Controller {
       this.latTarget.value = pos.coords.latitude;
       this.lngTarget.value = pos.coords.longitude;
     }, () => {},
-    { 
+    {
       enableHighAccuracy: true,
       timeout: 5000,
     });
@@ -22,7 +22,7 @@ export default class extends Controller {
     // this.success = this.success.bind(this);
     // this.error = this.error.bind(this);
   }
-  
+
 //   fetch_restaurants(position) {
 //     const proxyurl = "https://cors-anywhere.herokuapp.com/";
 //     const url = `https://places.googleapis.com/v1/places:searchNearby`;
@@ -53,7 +53,7 @@ export default class extends Controller {
 //       .then(response => response.text())
 //       .then((data) => {
 //         // this.listTarget.outerHTML = data;
-        
+
 //         console.log(data);
 //         // for each
 //         // insert.html

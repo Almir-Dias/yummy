@@ -5,6 +5,7 @@ export default class extends Controller {
   // static targets = ['list'];
 
   connect() {
+    console.log("oieeeee");
     // Vai todo o codigo que vai ser executado quando o controlador carrega, fetch sera carregado
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
     const url = `https://places.googleapis.com/v1/places:searchNearby`;
@@ -16,7 +17,7 @@ export default class extends Controller {
                   "latitude": -23.58398991363618,
                   "longitude": -46.685895111093835
               },
-          "radius": 100.0
+          "radius": 1000.0
           }
       }
     };
@@ -33,7 +34,7 @@ export default class extends Controller {
       .then(response => response.text())
       .then((data) => {
         // this.listTarget.outerHTML = data;
-        
+
         console.log(data);
     })
   }
