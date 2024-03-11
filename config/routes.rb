@@ -20,5 +20,5 @@ Rails.application.routes.draw do
   get '/favorites', to: 'favorites#index'
   delete 'favorites/:id', to: 'favorites#destroy'
   get '/profile', to: 'profiles#show'
- 
+  get '/page_three', to: 'pages#page_three'
 end
