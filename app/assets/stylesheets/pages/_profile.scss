@@ -1,0 +1,41 @@
+.profile-container {
+    max-width: 600px;
+    margin: 0;
+    padding: 0;
+}
+
+.profile-header {
+    text-align: center;
+}
+
+.profile-header h1 {
+    margin-top: 20px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+}
+
+.profile-links {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+}
+
+.profile-links div {
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.profile-links i {
+    font-size: 30px;
+}
+
+.profile-links a {
+    color: black;
+    text-decoration: none;
+    margin: 15px;
+}
+.btn {
+    border: 1px solid;
+    border-radius: 30px;
+    width: 350px;
+    margin: 30px;
+}
