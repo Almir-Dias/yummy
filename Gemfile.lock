@@ -132,12 +132,12 @@ GEM
       sassc (~> 2.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    gmaps4rails (2.1.2)
     google_places (2.0.0)
       httparty (>= 0.13.1)
     httparty (0.21.0)
       mini_mime (>= 1.0.0)
       multi_xml (>= 0.5.2)
-    gmaps4rails (2.1.2)
     i18n (1.14.3)
       concurrent-ruby (~> 1.0)
       racc (~> 1.7)
@@ -308,8 +308,8 @@ DEPENDENCIES
   dotenv-rails
   error_highlight (>= 0.4.0)
   font-awesome-sass (~> 6.1)
-  google_places
   gmaps4rails
+  google_places
   importmap-rails
   jbuilder
   pg (~> 1.1)

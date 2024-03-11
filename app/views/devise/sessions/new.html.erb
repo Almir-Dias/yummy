@@ -1,20 +1,38 @@
-<h2>Log in</h2>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-10 text-center">
+      <h2 class="mb-4">Entre no Yummy</h2>
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        <%= f.input :email, placeholder: 'E-mail', label: false %>
+        <%= f.input :password,  placeholder: 'password', label: false %>
+        <div class="d-grid gap-2">
+          <%= f.submit "Entrar", class: 'btn btn-warning rounded-4' %>
+        </div>
+      <% end %>
+
+
+      <div class="d-grid gap-2 mt-5">
+
+        <%= link_to new_user_registration_path, class: 'btn btn-outline-dark mb-3 rounded-4' do %>
+          Cadastre-se com e-mail
+        <% end %>
+
+
+        <%= link_to '#', class: 'btn btn-outline-dark mb-3 rounded-4' do %>
+          <i class="fa-brands fa-facebook" style="color: #74C0FC;"></i> Continuar com Facebook
+        <% end %>
+        <%= link_to '#', class: 'btn btn-outline-dark mb-3 rounded-4' do %>
+          <i class="fa-brands fa-google"></i> Continuar com Google
+        <% end %>
+        <%= link_to '#', class: 'btn btn-outline-dark mb-3 rounded-4' do %>
+          <i class="fa-brands fa-apple"></i> Continuar com Apple
+        <% end %>
+
+      </div>
+
+
+
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
