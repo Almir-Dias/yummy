@@ -22,6 +22,7 @@
 .profile-links div {
     margin-bottom: 30px;
     margin-top: 30px;
+    margin-left: 30px;
 }
 
 .profile-links i {
@@ -33,9 +34,21 @@
     text-decoration: none;
     margin: 15px;
 }
+
+.profile-picture {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.profile-links ul {
+    margin-top: 10px;
+}
+
 .btn {
     border: 1px solid;
     border-radius: 30px;
-    width: 350px;
-    margin: 30px;
+    width: 305px;
+    margin: 10px;
 }

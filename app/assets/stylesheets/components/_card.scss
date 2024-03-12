@@ -19,9 +19,9 @@
 
 .card-image {
   img {
-    border-radius: 40%;
     height: 150px;
-    width: 150px;
+    width: 100%;
+    object-fit: cover;
   }
 }
 
