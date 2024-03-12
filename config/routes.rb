@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get '/places/:id', to: 'places#show'
   get '/places', to: 'places#index'
   get '/favorites', to: 'favorites#index'
+  get '/show', to: 'pages#show'
   delete 'favorites/:id', to: 'favorites#destroy'
 
 
