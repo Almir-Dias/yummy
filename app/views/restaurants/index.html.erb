@@ -1,4 +1,4 @@
-<div class="row justify-content-center" data-controller="geolocation">
+<div class="" data-controller="geolocation">
   <div class="col-sm-8 my-3">
     <% if current_user %>
       <%= form_with url: restaurants_path, method: :get, class: "d-flex" do |f| %>
@@ -13,17 +13,22 @@
     <% end %>
   </div>
 </div>
-<div class="container">
+<div class="container col-12 col-lg-8">
   <div class="card-container col-10 text-center" >
       <% @restaurants.each do |restaurant| %>
         <div class="restaurant-card">
           <div class="card-image">
-            <%= image_tag restaurant.photo_url if restaurant.photo_url.present? %>
+            <% if restaurant.photo_url.present?%>
+              <%= link_to restaurant_path(restaurant) do %>
+                <%= image_tag restaurant.photo_url %>
+              <% end %>
+            <% end %>
+
           </div>
           <div class="card-info">
-            <h4>
+            <h3>
               <%= restaurant.name %>
-            </h4>
+            </h3>
             <p>
               Nota: <%= restaurant.rating %>
             </p>
@@ -35,10 +40,10 @@
 </div>
 
 
-:
 
 
-<%= button_tag "Clique Aqui", id: "meuBotao", data: { controller: "click", action: "click->click#handleClick" } %>
+
+<%#= button_tag "Clique Aqui", id: "meuBotao", data: { controller: "click", action: "click->click#handleClick" } %>
 
 
   <%# - <%= restaurant.address %>
