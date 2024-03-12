@@ -9,7 +9,6 @@ class RestaurantsController < ApplicationController
       @restaurants = Restaurant.where(rating: 4)
     end
 
-
     if params[:cuisine_id]
       @cuisine = Cuisine.find(params[:cuisine_id])
       @restaurants = @restaurants.joins(:cuisines).where(cuisines: @cuisine)
@@ -17,9 +16,10 @@ class RestaurantsController < ApplicationController
 
     @restaurants = @restaurants.order(rating: :desc)
 
-
-
     @cuisines = Cuisine.all
   end
 
+  def show
+    @restaurant = Restaurant.find(params[:id])
+  end
 end
