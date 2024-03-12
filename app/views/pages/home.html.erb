@@ -5,7 +5,7 @@
 <div class="btn-container">
   <div class="row">
     <div class="col text-center">
-      <%= link_to root_path, class: 'btn btn-light' do %>
+      <%= link_to restaurants_path, class: 'btn btn-light' do %>
         <div class='text-start ms-4'>
           <i class="fa-solid fa-utensils" style="color: #000000;"></i>
           Restaurante
@@ -24,13 +24,49 @@
     </div>
   </div>
 </div>
-
 </div>
+
   <div class="text">
-    <h3 class="text">Restaurantes que você pode gostar</h3>
-    <p class="paragraph">Mais restaurantes em São Paulo</p>
+    <h3 class="text text-center">Restaurantes que você pode gostar</h3>
+      
+
+<div id="restaurantCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <% @restaurants.each_with_index do |restaurant, index| %>
+      <button type="button" data-bs-target="#restaurantCarousel" data-bs-slide-to="<%= index %>" <% if index == 0 %>class="active" aria-current="true"<% end %> aria-label="Slide <%= index + 1 %>"></button>
+    <% end %>
   </div>
-    <%= link_to root_path do %>
+  <div class="carousel-inner">
+    <% @restaurants.each_with_index do |restaurant, index| %>
+      <div class="carousel-item <%= 'active' if index == 0 %>">
+        <div class="carousel-restaurant-card w-100">
+          <div class="card-image w-100">
+            <%= image_tag restaurant.photo_url if restaurant.photo_url.present? %>
+          <div class="card-info">
+            <h4><%= restaurant.name %></h4>
+            <p>Nota: <%= restaurant.rating %></p>
+          </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#restaurantCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#restaurantCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+    
+    
+    <p class="paragraph">Mais restaurantes em São Paulo</p>
+   </div>
+
+  <%= link_to root_path do %>
       <i class="fa-solid fa-house"></i>
     <% end %>
     <%= link_to root_path do %>

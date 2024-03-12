@@ -1,1 +1,30 @@
-
+<div id="restaurantCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <% @restaurants.each_with_index do |restaurant, index| %>
+      <button type="button" data-bs-target="#restaurantCarousel" data-bs-slide-to="<%= index %>" <% if index == 0 %>class="active" aria-current="true"<% end %> aria-label="Slide <%= index + 1 %>"></button>
+    <% end %>
+  </div>
+  <div class="carousel-inner">
+    <% @restaurants.each_with_index do |restaurant, index| %>
+      <div class="carousel-item <%= 'active' if index == 0 %>">
+        <div class="restaurant-card">
+          <div class="card-image">
+            <%= image_tag restaurant.photo_url if restaurant.photo_url.present? %>
+          </div>
+          <div class="card-info">
+            <h4><%= restaurant.name %></h4>
+            <p>Nota: <%= restaurant.rating %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#restaurantCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#restaurantCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
