@@ -6,7 +6,7 @@
   
   .carousel-card-image {
     img {
-      border-radius: 15%;
+      border-radius: 24px;
       height: 100px;
       width: 100px;
     }
@@ -15,6 +15,35 @@
   .carousel-card-info {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: auto;
+    max-height: fit-content;
     align-items: center;
+  }
+  .carousel-gallery {
+    display: grid;
+    grid-template-columns: repeat(9, 40vw) 8vw;
+    grid-template-rows: 1fr;
+    grid-column-gap: 1rem;
+    overflow: scroll;
+    scroll-snap-type: both mandatory;
+    scroll-padding: 1rem;
+    margin-bottom: 20px;
+
+  }
+
+  .carousel-gallery::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
+  .carousel-card-name {
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .carousel-card-rating {
+    text-align: center;
+    margin-top: 12px;
+    color: rgb(228, 175, 0);
+    font-size: 16px;
   }

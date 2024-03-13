@@ -54,6 +54,47 @@ object-fit: cover;
   }
 }
 
+
+
+
+.carousel-gallery li {
+display: block;
+border-radius: 3px;
+}
+
+.carousel-gallery li {
+  scroll-snap-align: center;
+  display: inline-block;
+  border-radius: 3px;
+}
+
+.carousel-gallery li:last-child {
+  margin: 0 auto;
+  align-self: center;
+}
+
+.carousel-card {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.active {
+  scroll-snap-type: unset;
+}
+
+.card-image2 {
+  border-radius: 24px;
+  height: 160px;
+  width: 160px;
+  display: flex;
+  justify-content: end;
+  align-items: flex-end;
+  text-align: end;
+  padding: 0 12px;
+}
+
 .circular-button {
   display: inline-block;
   width: 50px;
@@ -74,3 +115,4 @@ object-fit: cover;
   top: 25px;
   left: 10px;
 }
+
