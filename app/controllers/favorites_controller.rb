@@ -1,11 +1,20 @@
 class FavoritesController < ApplicationController
 
   def index
-    @favorites = current_user.favorites
+    @favorites = Favorite.where(user: current_user)
   end
 
   def create
-    @favorite = current_user.favorites.build(favorite_params)
+    @favorite = Favorite.new
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @favorite.restaurant = @restaurant
+    @favorite.user = current_user
+
+    if @favorite.save
+      redirect_to favorites_path
+    else
+      render "restaurant/show"
+    end
   end
 
   def show

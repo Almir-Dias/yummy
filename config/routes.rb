@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :restaurants, only: [:index, :show]
+  resources :restaurants, only: [:index, :show] do
+    resources :favorites, only: :create
+  end
+  resources :favorites, except: :create
 
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -18,9 +21,9 @@ Rails.application.routes.draw do
   get '/filter', to: 'restaurants#filter'
   get '/places/:id', to: 'places#show'
   get '/places', to: 'places#index'
-  get '/favorites', to: 'favorites#index'
+  
   get '/show', to: 'pages#show'
-  delete 'favorites/:id', to: 'favorites#destroy'
+  
   get '/profile', to: 'profiles#show'
   get '/page_three', to: 'pages#page_three'
 end

@@ -1,11 +1,11 @@
-<div class="container mt-5">
+<div class="container h-100 d-flex align-items-center justify-content-center">
   <div class="row justify-content-center">
     <div class="col-10 text-center">
       <h2 class="mb-4" style="font-family: 'Montserrat', sans-serif;">Entre no Yummy</h2>
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-        <%= f.input :email, placeholder: 'E-mail', label: false %>
-        <%= f.input :password,  placeholder: 'password', label: false %>
+        <%= f.input :email, placeholder: 'e-mail', label: false %>
+        <%= f.input :password,  placeholder: 'senha', label: false %>
         <div class="d-grid gap-2">
           <%= f.submit "Entrar", class: 'btn btn-warning rounded-4' %>
         </div>
