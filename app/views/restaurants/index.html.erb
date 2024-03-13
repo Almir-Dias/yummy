@@ -1,5 +1,5 @@
 <div class="" data-controller="geolocation">
-  <div class="col-sm-8 my-3">
+  <div class="col-sm-8 my-3 mt-4 text-center">
     <% if current_user %>
       <%= form_with url: restaurants_path, method: :get, class: "d-flex" do |f| %>
         <%= hidden_field_tag :lat, nil, "data-geolocation-target": 'lat' %>
@@ -9,7 +9,7 @@
         <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
       <% end %>
     <% else  %>
-      <p>Faca seu cadastro para poder filtrar</p>
+      <h1>Cadastre-se para filtrar</h1>
     <% end %>
   </div>
 </div>
@@ -31,7 +31,10 @@
               <%= restaurant.name %>
             </h3>
             <p>
-              Nota: <%= restaurant.rating %>
+             <i class=" fa-solid fa-star"></i>
+             <i class=" fa-solid fa-star"></i>
+             <i class=" fa-solid fa-star"></i>
+             <i class=" fa-solid fa-star"></i>
             </p>
           </div>
         </div>
