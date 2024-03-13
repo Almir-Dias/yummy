@@ -1,21 +1,9 @@
-<div class="" data-controller="geolocation">
-  <div class="col-sm-8 my-3 mt-4 text-center">
-    <% if current_user %>
-      <%= form_with url: restaurants_path, method: :get, class: "d-flex" do |f| %>
-        <%= hidden_field_tag :lat, nil, "data-geolocation-target": 'lat' %>
-        <%= hidden_field_tag :lng, nil, "data-geolocation-target": 'lng' %>
-
-        <%= f.collection_select :cuisine_id, @cuisines, :id, :name, {selected: @cuisine ? @cuisine.id  : nil, prompt: true}, {class: 'form-control',  } %>
-        <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
-      <% end %>
-    <% else  %>
-      <h1>Cadastre-se para filtrar</h1>
-    <% end %>
-  </div>
-</div>
 
 <div class="container">
   <div class="card-container col-10 text-center" >
+    <%= link_to filter_path, data: { turbo_frame: :modal }, class: "filter-icon" do %>
+      <i class="fa-solid fa-bars"></i>
+    <% end %>
       <% @restaurants.each do |restaurant| %>
         <div class="restaurant-card">
           <div class="card-image">
@@ -31,10 +19,8 @@
               <%= restaurant.name %>
             </h3>
             <p>
-             <i class=" fa-solid fa-star"></i>
-             <i class=" fa-solid fa-star"></i>
-             <i class=" fa-solid fa-star"></i>
-             <i class=" fa-solid fa-star"></i>
+              Nota: <%= restaurant.rating %>
+              Preco: <%= restaurant.price %>
             </p>
           </div>
         </div>

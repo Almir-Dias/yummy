@@ -49,6 +49,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_13_195706) do
     t.string "places_reference"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "price"
   end
 
   create_table "users", force: :cascade do |t|

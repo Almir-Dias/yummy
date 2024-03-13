@@ -1,0 +1,9 @@
+<%= turbo_frame_tag "modal" do %>
+  <div data-controller="modal">
+    <div class="transparant-overlay dark-transparent-background" data-action="click->modal#closeModal"></div>
+    <div class="modal-card">
+      <p data-action="click->modal#closeModal">Done</p>
+      <%= yield %>
+    </div>
+  </div>
+<% end %>

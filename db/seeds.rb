@@ -8,9 +8,15 @@ Cuisine.create!(name: "italiano")
 Cuisine.create!(name: "mexicano")
 Cuisine.create!(name: "vegano")
 
+# https://github.com/qpowell/google_places
+# First register a new Client:
+# @client = GooglePlaces::Client.new(API_KEY)
+# Then retrieve a list of spots:
+# @client.spots(-33.8670522, 151.1957362)
+# Search by a specific type:
+# @client.spots(-33.8670522, 151.1957362, :types => 'restaurant')
 
 client = GooglePlaces::Client.new(ENV['GOOGLE_API_KEY'])
-
 
 positions = [[-23.5465, -46.6908],
              [-23.566770, -46.693825]]
@@ -30,6 +36,7 @@ positions.each do |position|
       restaurant.address = spot_complete.formatted_address
       restaurant.rating = spot_complete.rating
       restaurant.photo_url = spot_complete.photos[0].fetch_url(200) if spot_complete.photos.present?
+      restaurant.price = spot_complete.price_level
       restaurant.latitude = spot_complete.lat
       restaurant.longitude = spot_complete.lng
       restaurant.places_reference = spot_complete.reference
