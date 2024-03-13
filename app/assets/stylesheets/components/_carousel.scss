@@ -1,0 +1,20 @@
+ 
+  .carousel-restaurant-card {
+    display: flex;
+    margin-bottom: 1.5rem;
+  }
+  
+  .carousel-card-image {
+    img {
+      border-radius: 15%;
+      height: 100px;
+      width: 100px;
+    }
+  }
+  
+  .carousel-card-info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }

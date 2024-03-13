@@ -6,9 +6,8 @@ class RestaurantsController < ApplicationController
     if params[:lat].present? && params[:lng].present?
       @restaurants = Restaurant.near([params[:lat].to_f, params[:lng].to_f], 1)
     else
-      @restaurants = Restaurant.where(rating: 5)
+      @restaurants = Restaurant.where(rating: 4)
     end
-
 
     if params[:cuisine_id]
       @cuisine = Cuisine.find(params[:cuisine_id])
@@ -17,9 +16,10 @@ class RestaurantsController < ApplicationController
 
     @restaurants = @restaurants.order(rating: :desc)
 
-
-
     @cuisines = Cuisine.all
   end
 
+  def show
+    @restaurant = Restaurant.find(params[:id])
+  end
 end
