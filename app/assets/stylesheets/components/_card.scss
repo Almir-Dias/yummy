@@ -40,13 +40,35 @@ object-fit: cover;
 
 .card-show-info{
   padding: 16px 32px;
-
+  
   h2 {
     font-weight: bold;
     font-size: 24px;
+    font-family: "Montserrat", sans-serif;
   }
 
   p {
     font-size: 16px;
   }
+}
+
+.circular-button {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background-color: #FFFFFF;
+  color: black;
+  border-radius: 50%;
+  text-decoration: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.flex-button {
+  position: absolute;
+  top: 25px;
+  left: 10px;
 }
