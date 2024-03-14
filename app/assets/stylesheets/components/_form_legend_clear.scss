@@ -15,3 +15,21 @@ legend ~ div.form-check:first-of-type {
   padding: 8px;
   font-family: Arial, sans-serif;
 }
+
+.form-control-cousine {
+  display: block;
+  width: 29%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #fd8300;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #ffffff;
+  background-clip: padding-box;
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  border-radius: 20px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}

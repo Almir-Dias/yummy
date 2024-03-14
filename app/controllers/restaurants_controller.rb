@@ -4,9 +4,11 @@ class RestaurantsController < ApplicationController
   def index
 
     if params[:lat].present? && params[:lng].present?
-      @restaurants = Restaurant.near([params[:lat].to_f, params[:lng].to_f], 1)
+      max_distance = 5
+      # Busca os restaurantes dentro da distância especificada
+      @restaurants = Restaurant.near([params[:lat].to_f, params[:lng].to_f, params[:distance].to_f], max_distance, units: :km)
     else
-      @restaurants = Restaurant.where(rating: 4)
+      @restaurants = Restaurant.all
     end
 
     if params[:cuisine_id].present?
@@ -14,13 +16,22 @@ class RestaurantsController < ApplicationController
       @restaurants = @restaurants.joins(:cuisines).where(cuisines: @cuisine)
     end
 
+
+        # Filtra os restaurantes pela classificação (rating) dentro do intervalo de 1 a 5
+        if params[:rating].present? && (1..5).include?(params[:rating].to_i)
+          @restaurants = @restaurants.where(rating: params[:rating])
+        end
+
+        # Filtra os restaurantes pelo preço dentro do intervalo de 1 a 5
+        if params[:price].present? && (1..5).include?(params[:price].to_i)
+          @restaurants = @restaurants.where(price: params[:price])
+        end
+
     @restaurants = @restaurants.order(rating: :desc)
 
     @cuisines = Cuisine.all
 
-    # if params[:lat].present? && params[:lng].present? fazer rating, price, discance
 
-    #selecao de opcoes dentro form with com estilos personalizados
   end
 
   def map
@@ -34,19 +45,8 @@ class RestaurantsController < ApplicationController
   end
 
   def filter
-    if params[:lat].present? && params[:lng].present?
-      @restaurants = Restaurant.near([params[:lat].to_f, params[:lng].to_f], 1)
-    else
-      @restaurants = Restaurant.where(rating: 4)
-    end
 
-    if params[:cuisine_id]
-      @cuisine = Cuisine.find(params[:cuisine_id])
-      @restaurants = @restaurants.joins(:cuisines).where(cuisines: @cuisine)
-    end
-
-    @restaurants = @restaurants.order(rating: :desc)
-
+    # Exibe todos os tipos de cozinha para opções de filtro na view
     @cuisines = Cuisine.all
   end
 

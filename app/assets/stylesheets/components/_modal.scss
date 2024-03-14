@@ -1,17 +1,23 @@
+
 .modal-card {
-
-
-  flex-direction: column;
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  transform: translateY(-50%);
-  z-index: 1001;
-  transition: visibility 1s, opacity 2s, linear;
-  animation: fade-in 1s;
-
+    background-color: #ff7f00f5;
+    min-height: 110vh;
+    min-width: 100%;
+    margin: 57vh auto;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0px;
+    right: 0;
+    top: 0px;
+    transform: translateY(-52%);
+    z-index: 1001;
+    transition: visibility 1s, opacity 2s, linear;
+    animation: fade-in 1s;
 }
+
+
 
 
 
@@ -23,5 +29,28 @@
   top: 0;
   width: 100%;
   z-index: 1000;
+
+}
+
+.dark-transparent-background {
+  background-color: rgba($color: #000, $alpha:0.4);
+}
+
+
+.modal-card-done {
+  font-size: 20px;
+  font-family: 'Pacifico';
+  border-radius: 21px;
+  background-color: #ff7c33;
+  margin-left: 322px;
+  box-shadow: -4px 2px 22px rgba(0, 0, 0, 1.5);
+}
+
+
+.filter-icon1 {
+  color: #ff7c33;
+  font-size: 32px;
+  margin-right: 258px;
+
 
 }
