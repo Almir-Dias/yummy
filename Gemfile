@@ -55,7 +55,9 @@ gem "simple_form", github: "heartcombo/simple_form"
 gem "sassc-rails"
 gem 'google_places'
 gem 'geocoder'
-
+gem 'httparty'
+# gem 'openai'
+gem 'ruby-openai'
 
 
 

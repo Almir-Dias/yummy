@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'chats/index'
   devise_for :users
 
   resources :restaurants, only: [:index, :show] do
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   Rails.application.routes.draw do
+  get 'chats/index'
     get '/api', to: 'api#index'
   end
   # Defines the root path route ("/")
@@ -26,4 +28,12 @@ Rails.application.routes.draw do
   
   get '/profile', to: 'profiles#show'
   get '/page_three', to: 'pages#page_three'
+
+
+  # config/routes.rb
+Rails.application.routes.draw do
+  get 'chats', to: 'chats#index'
+end
+
+
 end
