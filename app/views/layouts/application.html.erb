@@ -8,11 +8,11 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    <%= turbo_frame_tag "modal" %>
 
   </head>
 
   <body>
+    <%= turbo_frame_tag "modal" %>
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
     <%= yield %>

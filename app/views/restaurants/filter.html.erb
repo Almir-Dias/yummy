@@ -1,16 +1,29 @@
 <%= render "shared/modal" do %>
   <div>
     <% if current_user %>
-      <%= form_with url: restaurants_path, method: :get, class: "d-flex" do |f| %>
+      <%= form_with url: restaurants_path, method: :get, class: "d-flex", data: {turbo_frame:"restaurants", action: "submit->modal#closeModal"} do |f| %>
         <%= hidden_field_tag :lat, nil, "data-geolocation-target": 'lat' %>
         <%= hidden_field_tag :lng, nil, "data-geolocation-target": 'lng' %>
-        <li>
-          <%= f.collection_select :cuisine_id, @cuisines, :id, :name, {selected: @cuisine ? @cuisine.id  : nil, prompt: true}, {class: 'form-control',  } %>
+        <div>
+          <div class="tags-wrapper">
+
+          <%= f.collection_radio_buttons :cuisine_id, @cuisines, :id, :name, selected: @cuisine ? @cuisine.id  : nil, prompt: true %>
+
+          </div>
+          <div>Distancia
           <%= f.range_field :distance, in: 0..50, step: 1 %>
-          <%= f.range_field :price, in: 0..3, step: 1 %>
+          </div>
+
+          <div>Preço
+          <%= f.range_field :price, in: 0..5, step: 1 %>
+          </div>
+
+          <div>Avaliaçao
           <%= f.range_field :rating, in: 0..5, step: 1 %>
+          </div>
+
           <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
-        </li>
+        </div>
       <% end %>
     <% else  %>
       <p>Faca seu cadastro para poder filtrar</p>
