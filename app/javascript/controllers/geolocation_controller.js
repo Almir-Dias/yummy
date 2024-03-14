@@ -80,3 +80,4 @@ export default class extends Controller {
 //     navigator.geolocation.getCurrentPosition(this.success, this.error, options);
 //   }
 }
+

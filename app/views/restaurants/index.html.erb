@@ -1,9 +1,16 @@
 <%= turbo_frame_tag "restaurants" do %>
-  <div class="container">
-    <div class="card-container col-10 text-center" >
-      <%= link_to filter_path, data: { turbo_frame: :modal }, class: "filter-icon" do %>
-        <i class="filter-icon1 fa-solid fa-bars"></i>
+  <div class= "fixed-top d-flex gap-4 justify-content-center">
+    <%= link_to filter_path, data: { turbo_frame: :modal }, class: "filter-icon" do %>
+        <i class="fa-solid fa-bars"></i>
       <% end %>
+      <%= link_to map_path, data: { turbo_frame: :modal }, class: "filter-icon" do %>
+        <i class="fa-solid fa-location-dot"></i>
+      <% end %>
+  </div>
+
+
+  <div class="container mt-5">
+    <div class="card-container col-10 text-center" >
        <% if @restaurants.any? %>
         <% @restaurants.each do |restaurant| %>
           <div class="restaurant-card">

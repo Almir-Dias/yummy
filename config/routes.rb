@@ -18,13 +18,12 @@ Rails.application.routes.draw do
   end
   # Defines the root path route ("/")
   # root "posts#index"
-  
+
   get '/filter', to: 'restaurants#filter'
+  get '/map', to: 'restaurants#map'
   get '/places/:id', to: 'places#show'
   get '/places', to: 'places#index'
-
   get '/show', to: 'pages#show'
-
   get '/profile', to: 'profiles#show'
   get '/page_three', to: 'pages#page_three'
 end
