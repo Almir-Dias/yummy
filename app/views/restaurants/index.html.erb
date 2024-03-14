@@ -1,4 +1,4 @@
-<%= turbo_frame_tag "restaurants" do %>
+<%= turbo_frame_tag "restaurants", target: "_top" do %>
   <div class= "fixed-top d-flex gap-4 justify-content-center">
     <%= link_to filter_path, data: { turbo_frame: :modal }, class: "filter-icon" do %>
         <i class="fa-solid fa-bars"></i>
