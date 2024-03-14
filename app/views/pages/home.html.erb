@@ -33,7 +33,7 @@
 
 <div> 
   <ul class="carousel-gallery">
-    <%= render partial: 'restaurants/card', collection: @restaurants.first(9), as: :restaurant %>
+    <%= render partial: 'restaurants/card', collection: @restaurants.first(9), as: :restaurant, locals: { favorite: nil } %>
   </ul>
 </div>
 

@@ -2,7 +2,7 @@
   <div data-controller="modal">
     <div class="transparant-overlay dark-transparent-background" data-action="click->modal#closeModal"></div>
     <div class="modal-card">
-      <p data-action="click->modal#closeModal">Done</p>
+      <p class="modal-card-done" data-action="click->modal#closeModal">X</p>
       <%= yield %>
     </div>
   </div>

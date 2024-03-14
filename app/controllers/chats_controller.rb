@@ -62,7 +62,7 @@ class ChatsController < ApplicationController
     # @restaurants = Restaurant.where(cuisine: @cuisines)
 
     respond_to do |format|
-      format.text { render partial: 'restaurants/card', collection: restaurants, as: :restaurant, formats: [:html] }
+      format.text { render partial: 'restaurants/card', collection: restaurants, as: :restaurant, locals: { favorite: nil }, formats: [:html] }
     end
   end
 

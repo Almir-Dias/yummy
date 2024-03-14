@@ -1,8 +1,8 @@
 <div class="container">
-    <h1 class="title">Favoritos</h1>
-    <ul>
-      <% @favorites.each do |favorite| %>
-        <%= render partial: 'restaurants/card', locals: { restaurant: favorite.restaurant } %>
-      <% end %>
-    </ul>
+  <h1 class="title">Favoritos</h1>
+  <ul>
+    <% @favorites.each do |favorite| %>
+      <%= render partial: 'restaurants/card', locals: { restaurant: favorite.restaurant, favorite: favorite } %>
+    <% end %>
+  </ul>
 </div>

@@ -9,4 +9,5 @@ class Restaurant < ApplicationRecord
 
   validates :name, :address, :rating, :latitude, :longitude, :places_reference, presence: true
   validates :places_reference, uniqueness: true
+  after_validation :geocode, if: :will_save_change_to_address?
 end

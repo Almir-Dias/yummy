@@ -1,12 +1,17 @@
 Restaurant.destroy_all
 Cuisine.destroy_all
 
-Cuisine.create!(name: "japones")
-Cuisine.create!(name: "pizza")
-Cuisine.create!(name: "hamburguer")
-Cuisine.create!(name: "italiano")
-Cuisine.create!(name: "mexicano")
-Cuisine.create!(name: "vegano")
+Cuisine.create!(name: "Japonesa")
+Cuisine.create!(name: "Pizza")
+Cuisine.create!(name: "Lanches")
+Cuisine.create!(name: "Italiana")
+Cuisine.create!(name: "Mexicana")
+Cuisine.create!(name: "Vegana")
+Cuisine.create!(name: "Tailandesa")
+Cuisine.create!(name: "Indiana")
+Cuisine.create!(name: "Peruana")
+Cuisine.create!(name: "Brasileira")
+
 
 # https://github.com/qpowell/google_places
 # First register a new Client:
@@ -19,11 +24,11 @@ Cuisine.create!(name: "vegano")
 client = GooglePlaces::Client.new(ENV['GOOGLE_API_KEY'])
 
 positions = [[-23.5465, -46.6908],
-             [-23.566770, -46.693825]]
+             [-23.5709, -46.6499]]
 
 
 positions.each do |position|
-  Cuisine.all.each do |cuisine|
+  Cuisine.first(3).each do |cuisine|
     puts "buscando restaurante #{cuisine.name}"
 
     spots = client.spots(position[0], position[1], :types => ['restaurant', 'food'], name: cuisine.name)

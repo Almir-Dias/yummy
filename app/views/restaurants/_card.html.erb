@@ -1,12 +1,34 @@
-<li style="list-style-type: none">
+<%= link_to (restaurant.id ? restaurant_path(restaurant) : "#"), class: "restaurant-card" do %>
+  <% if restaurants_url.present?%>
+    <div class="card-image">
+      <%= image_tag restaurant.photo_url || "" %>
+    </div>
+  <% end %>
+  <div class="restaurant-name position-relative w-100 p-2 ms-2">
+    <% if current_user == favorite&.user %>
+      <div class="d-flex justify-content-end">
+        <%= link_to favorite_path(favorite), data: {"turbo-method": :delete} do %>
+          <i class="fa-2x fa-regular fa-circle-xmark" style="color: #b70606;"></i>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="pl-4">
+      <%= restaurant.name %>
+    </div>
+  </div>
+<% end %>
+
+<%# <li style="list-style-type: none">
     <div class="carousel-card d-flex flex-column align-items-center"> 
         <div class="card-image2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= restaurant.photo_url%>)">
-            <p class="carousel-card-name"><%= restaurant.name %></p>
-        </div>
+            <%# <p class="carousel-card-name"><%= restaurant.name %>
+            <%# </p> %>
+        <%# </div> %>
 
-        <div class="carousel-card-rating">
-            <p><%= star_rating(restaurant.rating)%></p>  
+        <%# <div class="carousel-card-rating"> %>
+            <%# <p><%= star_rating(restaurant.rating)%>
+            <%# </p> 
         </div>
 
     </div>
-</li>
+</li>   %>

@@ -8,6 +8,7 @@
   align-items: center;
   display: flexbox;
   flex-direction: column;
+
   }
 
 .restaurant-card {
@@ -15,7 +16,7 @@
   display: flex;
   border-radius: 16px;
   margin-bottom: 1.5rem;
-
+  text-decoration: none;
 }
 
 .card-image {
@@ -42,7 +43,7 @@ object-fit: cover;
 
 .card-show-info{
   padding: 16px 32px;
-  
+
   h2 {
     font-weight: bold;
     font-size: 24px;
@@ -116,3 +117,21 @@ border-radius: 3px;
   left: 10px;
 }
 
+
+.modal-card {
+
+  min-height: 110vh;
+  min-width: 100vw;
+  margin: 57vh auto;
+  max-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0px;
+  right: 0;
+  top: 0px;
+  transform: translateY(-52%);
+  z-index: 1001;
+  transition: visibility 1s, opacity 2s, linear;
+  animation: fade-in 1s;
+}
