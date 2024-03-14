@@ -2,13 +2,13 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="chat"
 export default class extends Controller {
-  static targets = ['container'];
+  static targets = ['container', 'loading', 'list'];
 
   connect() {
     navigator.geolocation.getCurrentPosition((position) => {
       this.getCustomRestaurants(position.coords.longitude, position.coords.latitude);
     }, () => {
-      this.containerTarget.innerHTML = "<h1>Please accept geolocation</h1>"
+      this.containerTarget.innerHTML = "<h1>Please accept geolocation</h1>";
     })
   }
 
@@ -18,6 +18,8 @@ export default class extends Controller {
     });
     const data = await response.text();
 
-    this.containerTarget.innerHTML = data;
+    this.loadingTarget.classList.add('d-none');
+    this.containerTarget.classList.remove('h-100');
+    this.listTarget.innerHTML = data;
   }
 }

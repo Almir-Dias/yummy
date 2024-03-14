@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   get '/profile', to: 'profiles#show'
   get '/page_three', to: 'pages#page_three'
 
-  get 'chats', to: 'chats#index'
+  get 'chats', to: 'chats#index', as: :chat
   get 'custom_restaurants', to: 'chats#custom_restaurants'
 
 

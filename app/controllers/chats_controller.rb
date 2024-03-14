@@ -7,6 +7,7 @@ class ChatsController < ApplicationController
   def custom_restaurants
     longitude = coords_params["longitude"]
     latitude = coords_params["latitude"]
+    client = GooglePlaces::Client.new(ENV['GOOGLE_API_KEY'])
 
     @cuisines = Cuisine.all
     @weather = fetch_weather(latitude, longitude)
@@ -15,10 +16,53 @@ class ChatsController < ApplicationController
       @response = generate_response(@weather)
       @cuisines = Cuisine.where(name: @response)
     end
-    @restaurants = Restaurant.where(cuisine: @cuisines)
+
+    restaurants = []
+
+    # Pegando só uma recomendação do gepetão
+
+    spots = client.spots(latitude, longitude, :types => ['restaurant', 'food'], name: @cuisines.first.name)
+
+    spots.each do |spot|
+      spot_complete = client.spot(spot.reference)
+      restaurant = Restaurant.new
+      restaurant.name = spot_complete.name
+      restaurant.address = spot_complete.formatted_address
+      restaurant.rating = spot_complete.rating
+      restaurant.photo_url = spot_complete.photos[0].fetch_url(200) if spot_complete.photos.present?
+      restaurant.price = spot_complete.price_level
+      restaurant.latitude = spot_complete.lat
+      restaurant.longitude = spot_complete.lng
+      restaurant.places_reference = spot_complete.reference
+      restaurants << restaurant
+    end
+
+
+    # Pegando todas as recomendaçõies do gepetão
+
+    # @cuisines.each do |cuisine|
+    #   spots = client.spots(latitude, longitude, :types => ['restaurant', 'food'], name: cuisine.name)
+
+    #   spots.each do |spot|
+    #     spot_complete = client.spot(spot.reference)
+    #     restaurant = Restaurant.new
+    #     restaurant.name = spot_complete.name
+    #     restaurant.address = spot_complete.formatted_address
+    #     restaurant.rating = spot_complete.rating
+    #     restaurant.photo_url = spot_complete.photos[0].fetch_url(200) if spot_complete.photos.present?
+    #     restaurant.price = spot_complete.price_level
+    #     restaurant.latitude = spot_complete.lat
+    #     restaurant.longitude = spot_complete.lng
+    #     restaurant.places_reference = spot_complete.reference
+    #     restaurants << restaurant
+    #   end
+    # end
+
+    # Puxando da nossa base de dados
+    # @restaurants = Restaurant.where(cuisine: @cuisines)
 
     respond_to do |format|
-      format.text { render partial: 'restaurants/card', collection: @restaurants, as: :restaurant, formats: [:html] }
+      format.text { render partial: 'restaurants/card', collection: restaurants, as: :restaurant, formats: [:html] }
     end
   end
 

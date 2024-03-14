@@ -1,11 +1,11 @@
-<li>
-    <div class="carousel-card"> 
+<li style="list-style-type: none">
+    <div class="carousel-card d-flex flex-column align-items-center"> 
         <div class="card-image2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= restaurant.photo_url%>)">
-        <p class="carousel-card-name"><%= restaurant.name %></p>
+            <p class="carousel-card-name"><%= restaurant.name %></p>
         </div>
 
         <div class="carousel-card-rating">
-        <p><%= star_rating(restaurant.rating)%></p>  
+            <p><%= star_rating(restaurant.rating)%></p>  
         </div>
 
     </div>
