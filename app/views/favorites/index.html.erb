@@ -1,8 +1,26 @@
 <div class="container">
-    <h1 class="title">Favoritos</h1>
-    <ul>
-      <% @favorites.each do |favorite| %>
-        <li><%= favorite.restaurant.name %></li>
-      <% end %>
-    </ul>
+  <h1 class="title">Favoritos</h1>
+  <% @favorites.each do |favorite| %>
+    <div class="restaurant-card">
+        <% if restaurants_url.present?%>
+          <%= link_to restaurant_path(favorite.restaurant) do %>
+          <div class="card-image">
+            <%= image_tag favorite.restaurant.photo_url %>
+          </div>
+          <% end %>
+        <% end %>
+      <div class="restaurant-name position-relative w-100 p-2 ms-2">
+        <% if current_user == favorite.user %>
+        <div class="d-flex justify-content-end">
+            <%= link_to favorite_path(favorite), data: {"turbo-method": :delete} do %>
+              <i class="fa-2x fa-regular fa-circle-xmark" style="color: #b70606;"></i>
+            <% end %>
+        </div>
+        <% end %>
+        <div class="pl-4">
+        <%= favorite.restaurant.name %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
