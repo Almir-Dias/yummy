@@ -14,10 +14,8 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
-  Rails.application.routes.draw do
   get 'chats/index'
-    get '/api', to: 'api#index'
-  end
+  get '/api', to: 'api#index'
   # Defines the root path route ("/")
   # root "posts#index"
   get '/filter', to: 'restaurants#filter'
@@ -29,11 +27,8 @@ Rails.application.routes.draw do
   get '/profile', to: 'profiles#show'
   get '/page_three', to: 'pages#page_three'
 
-
-  # config/routes.rb
-Rails.application.routes.draw do
   get 'chats', to: 'chats#index'
-end
+  get 'custom_restaurants', to: 'chats#custom_restaurants'
 
 
 end

@@ -44,7 +44,7 @@ positions.each do |position|
         puts "criando restaurante #{spot_complete.name}"
       end
 
-      restaurant.cuisines << cuisine
+      restaurant.cuisine = cuisine
       restaurant.save
       if restaurant.save
         puts "adicionou restaurante #{spot_complete.name} na cuisine #{cuisine.name} "
