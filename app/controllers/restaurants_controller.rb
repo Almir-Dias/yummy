@@ -23,6 +23,16 @@ class RestaurantsController < ApplicationController
     #selecao de opcoes dentro form with com estilos personalizados
   end
 
+  def map
+    @restaurants = Restaurant.all
+    @markers = @restaurants.geocoded.map do |restaurant|
+      {
+        lat: restaurant.latitude,
+        lng: restaurant.longitude
+      }
+    end
+  end
+
   def filter
     if params[:lat].present? && params[:lng].present?
       @restaurants = Restaurant.near([params[:lat].to_f, params[:lng].to_f], 1)
