@@ -17,5 +17,6 @@ class PagesController < ApplicationController
 
     @restaurants = @restaurants.order(rating: :desc)
     @cuisines = Cuisine.all
+    @animate = :home
   end
 end

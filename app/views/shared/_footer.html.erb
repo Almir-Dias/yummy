@@ -4,11 +4,11 @@
   <div class="container-fluid">
 
     <%= link_to root_path do %>
-      <i class="fa-solid fa-house"></i>
+      <i class="fa-solid fa-house <%= 'animate__animated animate__bounce' if @animate == :home %>"></i>
     <% end %>
 
     <%= link_to favorites_path do %>
-      <i class="fa-regular fa-heart"></i>
+      <i class="fa-regular fa-heart <%= 'animate__animated animate__heartBeat' if @animate == :favorite %>"></i>
     <% end %>
 
     <%= link_to root_path do %>
@@ -16,21 +16,9 @@
     <% end %>
 
     <%= link_to profile_path do %>
-      <i class="fa-solid fa-user"></i>
+      <i class="fa-solid fa-user <%= 'animate__animated animate__bounce' if @animate == :profile %>"></i>
     <% end %>
 
   </div>
 </nav>
 
-<%#
-
-<div class="navigation">
-  <ul>
-    <li class="list active">
-      <a href="#">
-        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
-        <span class="text">Home</span>
-      </a>
-    </li>
-  </ul>
-</div> %>
