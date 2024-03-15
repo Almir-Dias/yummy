@@ -13,16 +13,6 @@
       <% end %>
     </div>
   </div>
-  <div class="row">
-    <div class="col text-center">
-      <%= link_to root_path, class: 'btn btn-light' do %>
-        <div class='text-start ms-4'>
-          <i class="fa-solid fa-beer-mug-empty" style="color: #000000;"></i>
-          Bares
-        </div>
-      <% end %>
-    </div>
-  </div>
 </div>
 </div>
 
@@ -34,22 +24,20 @@
 <div> 
   <ul class="carousel-gallery">
     <% @restaurants.first(9).each do |restaurant| %>
-      <li>
-        <div class="carousel-card"> 
+      <li style="list-style-type: none">
+        <div class="carousel-card d-flex flex-column align-items-center"> 
           <div class="card-image2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= restaurant.photo_url%>)">
             <p class="carousel-card-name"><%= restaurant.name %></p>
           </div>
-        
-          <div class="carousel-card-rating">
-            <p><%= star_rating(restaurant.rating)%></p>  
-          </div>
 
+          <div class="carousel-card-rating">
+            <p><%= star_rating(restaurant.rating)%></p> 
+          </div>
         </div>
       </li>
     <% end %>
   </ul>
 </div>
-
 
 <div data-controller="google-places"></div>
 

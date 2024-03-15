@@ -15,10 +15,9 @@
         <% @restaurants.each do |restaurant| %>
           <div class="restaurant-card">
             <div class="card-image">
-              <% if restaurant.photo_url.present?%>
-                <%= link_to restaurant_path(restaurant) do %>
-                  <%= image_tag restaurant.photo_url %>
-                <% end %>
+              
+              <%= link_to restaurant_path(restaurant) do %>
+                  <%= image_tag restaurant.photo_url.present? ? restaurant.photo_url : 'restaurant.png' %>
               <% end %>
 
             </div>

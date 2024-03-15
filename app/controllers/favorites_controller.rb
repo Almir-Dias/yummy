@@ -2,6 +2,7 @@ class FavoritesController < ApplicationController
 
   def index
     @favorites = Favorite.where(user: current_user)
+    @animate = :favorite
   end
 
   def create
