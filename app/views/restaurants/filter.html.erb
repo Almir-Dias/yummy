@@ -1,4 +1,8 @@
 <%= render "shared/modal" do %>
+<br>
+<br>
+<br>
+<br>
   <div>
     <% if current_user %>
       <%= form_with url: restaurants_path, method: :get, class: "d-flex", data: {turbo_frame:"restaurants", action: "submit->modal#closeModal"} do |f| %>

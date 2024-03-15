@@ -1,6 +1,6 @@
 
 .modal-card {
-    background-color: #ff7f00f5;
+    background-color: #e6e6e6;
     min-height: 110vh;
     min-width: 100%;
     margin: 57vh auto;
@@ -16,9 +16,6 @@
     transition: visibility 1s, opacity 2s, linear;
     animation: fade-in 1s;
 }
-
-
-
 
 
 .transparent-overlay {
@@ -38,7 +35,9 @@
 
 
 .modal-card-done {
-  font-size: 20px;
+  color: #e6e6e6;
+  text-align: center;
+  font-size: 31px;
   font-family: 'Pacifico';
   border-radius: 21px;
   background-color: #ff7c33;
@@ -47,10 +46,21 @@
 }
 
 
-.filter-icon1 {
-  color: #ff7c33;
+.filter-icon-bar {
+  color: #EC610A;
   font-size: 32px;
   margin-right: 258px;
+}
+.fa-location-dot {
+  color: #EC610A;
+  font-size: 32px;
 
+
+}
+
+
+.btn-primary {
+  BORDER-RADIUS: 24PX;
+	color: #ffff;
 
 }

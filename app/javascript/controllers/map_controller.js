@@ -17,13 +17,21 @@ export default class extends Controller {
   }
 
   #addMarkersToMap() {
+    // Restaurantes
     this.markersValue.forEach((marker) => {
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
       new mapboxgl.Marker()
         .setLngLat([ marker.lng, marker.lat ])
+        .setPopup(popup)
         .addTo(this.map)
     })
+    // Posição atual do usuário
+    navigator.geolocation.getCurrentPosition((position)=>{
+      new mapboxgl.Marker({color:"#FF0000"})
+      .setLngLat([ position.coords.longitude,position.coords.latitude ])
+      .addTo(this.map)
+    })
   }
-
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))

@@ -1,0 +1,7 @@
+<h2><%= restaurant.name %></h2>
+<p><%= restaurant.address %></p>
+ <% if restaurant.photo_url.present?%>
+  <%= link_to restaurant_path(restaurant), data: { turbo_frame: :_top } do %>
+    <%= image_tag restaurant.photo_url %>
+  <% end %>
+<% end %>
