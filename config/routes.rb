@@ -29,6 +29,7 @@ Rails.application.routes.draw do
 
   get 'chats', to: 'chats#index', as: :chat
   get 'custom_restaurants', to: 'chats#custom_restaurants'
+  get 'ai_recommendation', to: 'chats#ai_recommendation'
 
 
 end
