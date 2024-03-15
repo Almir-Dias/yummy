@@ -15,9 +15,9 @@
         <% @restaurants.each do |restaurant| %>
           <div class="restaurant-card">
             <div class="card-image">
-              
+
               <%= link_to restaurant_path(restaurant) do %>
-                  <%= image_tag restaurant.photo_url.present? ? restaurant.photo_url : 'restaurant.png' %>
+                  <%= image_tag restaurant.photo_url.present? ? restaurant.photo_url : 'Restaurant_aleatorio.jpeg' %>
               <% end %>
 
             </div>

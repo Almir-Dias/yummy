@@ -21,17 +21,17 @@
     <h3 class="text text-center">Restaurantes para você</h3>
 </div>
 
-<div> 
+<div>
   <ul class="carousel-gallery">
     <% @restaurants.first(9).each do |restaurant| %>
       <li style="list-style-type: none">
-        <div class="carousel-card d-flex flex-column align-items-center"> 
+        <div class="carousel-card d-flex flex-column align-items-center">
           <div class="card-image2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= restaurant.photo_url%>)">
             <p class="carousel-card-name"><%= restaurant.name %></p>
           </div>
 
           <div class="carousel-card-rating">
-            <p><%= star_rating(restaurant.rating)%></p> 
+            <p><%= star_rating(restaurant.rating)%></p>
           </div>
         </div>
       </li>
@@ -43,7 +43,7 @@
 
 
 
-<%# 
+<%#
 
 <div class=>
   <div class="carousel-indicators">
@@ -54,12 +54,12 @@
   <div class="carousel-inner">
     <% @restaurants.each_with_index do |restaurant, index| %>
       <%# <div class="carousel-item <%= 'active' if index == 0 %>
-        <%# <div class="carousel-restaurant-card w-100"> %> 
+        <%# <div class="carousel-restaurant-card w-100"> %>
           <%# <div class="card-image w-100">
-            <img src="<%= restaurant.photo_url" alt="<%= restaurant.name %>" 
+            <img src="<%= restaurant.photo_url" alt="<%= restaurant.name %>"
           <%# </div> %>
           <%# <div class="card-info">
-            <h4><%= restaurant.name</h4> %> 
+            <h4><%= restaurant.name</h4> %>
             <%# <p>Nota: <%= restaurant.rating</p>  %>
           <%# </div>
         </div>
@@ -74,14 +74,14 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
-</div> %> 
+</div> %>
 
 <%# <div data-controller="menu"></div> %>
 
 
-<%# 
+<%#
 
-<script> 
+<script>
 const $menu = document.querySelector('.menu')
 const $items = document.querySelectorAll('.menu--item')
 const $images = document.querySelectorAll('.menu--item img')
@@ -118,7 +118,7 @@ const dispose = (scroll) => {
       }
     }
   })
-} 
+}
 dispose(0)
 
 
@@ -187,10 +187,10 @@ const render = () => {
   requestAnimationFrame(render)
   y = lerp(y, scrollY, .1)
   dispose(y)
-  
+
   scrollSpeed = y - oldScrollY
   oldScrollY = y
-  
+
   gsap.to($items, {
     skewX: -scrollSpeed * .2,
     rotate: scrollSpeed * .01,
@@ -200,5 +200,3 @@ const render = () => {
 render()
 
 </script> %>
-
-
