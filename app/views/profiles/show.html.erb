@@ -12,9 +12,13 @@
   <div class="profile-links ">
     <ul class="col-md-6">
       <div><i class="fa-regular fa-heart"></i> <%= link_to "Favoritos", favorites_path %></div>
+      <div><i class="fa-solid fa-bars" style="color: #000000;"></i> <%= link_to "Dados da conta", favorites_path %></div>
+      <div><i class="fa-regular fa-circle-question"></i> <%= link_to "Ajuda", favorites_path %></div>
+      <div><i class="fa-solid fa-gear" style="color: #000000;"></i> <%= link_to "configurações", favorites_path %></div>
     </ul>
   </div>
   <div class="profile-actions text-left">
   <%= link_to "Sair", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-light" %>
+  
   </div>
 </div>
