@@ -39,7 +39,7 @@ positions.each do |position|
       restaurant = Restaurant.new
       restaurant.name = spot_complete.name
       restaurant.address = spot_complete.formatted_address
-      restaurant.rating = spot_complete.rating
+      restaurant.rating = rand(1..5)
       restaurant.photo_url = spot_complete.photos[0].fetch_url(200) if spot_complete.photos.present?
       restaurant.price = spot_complete.price_level
       restaurant.latitude = spot_complete.lat

@@ -1,17 +1,15 @@
 <%= render "shared/modal" do %>
-<br>
-<br>
-<br>
-<br>
   <div>
+
     <% if current_user %>
       <%= form_with url: restaurants_path, method: :get, class: "d-flex", data: {turbo_frame:"restaurants", action: "submit->modal#closeModal"} do |f| %>
         <%= hidden_field_tag :lat, nil, "data-geolocation-target": 'lat' %>
         <%= hidden_field_tag :lng, nil, "data-geolocation-target": 'lng' %>
         <div>
-          <div class="tags-wrapper">
-            <%= f.collection_radio_buttons :cuisine_id, @cuisines, :id, :name, selected: @cuisine ? @cuisine.id  : nil, prompt: true %>
-          </div>
+          <br>
+<h1 class="title">Filtros</h1>
+<br>
+<br>
           <div data-controller="slider" data-slider-type-value="km">
             <div class="d-flex justify-content-between">
               <span>Distancia</span>
@@ -19,6 +17,7 @@
             </div>
             <%= f.range_field :distance, in: 1..5, step: 1, data: { slider_target: "input", action: "input->slider#update" } %>
           </div>
+<br>
 
           <div data-controller="slider" data-slider-type-value="price">
             <div class="d-flex justify-content-between">
@@ -28,6 +27,7 @@
           <%= f.range_field :price, in: 1..5, step: 1, data: { slider_target: "input", action: "input->slider#update" } %>
           </div>
 
+<br>
           <div data-controller="slider" data-slider-type-value="star">
             <div class="d-flex justify-content-between">
               <span>Avaliaçao</span>
@@ -36,7 +36,15 @@
             <%= f.range_field :rating, in: 1..5, step: 1, data: { slider_target: "input", action: "input->slider#update" } %>
           </div>
 
-          <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+<br>
+<br>
+          <div class="tags-wrapper">
+            <%= f.collection_radio_buttons :cuisine_id, @cuisines, :id, :name, selected: @cuisine ? @cuisine.id  : nil, prompt: true %>
+          </div>
+
+<br>
+<br>
+          <%= submit_tag "Procurar", name: "", class: "btn btn-primary" %>
         </div>
       <% end %>
     <% else  %>
