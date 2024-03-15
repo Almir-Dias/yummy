@@ -33,20 +33,7 @@
 
 <div> 
   <ul class="carousel-gallery">
-    <% @restaurants.first(9).each do |restaurant| %>
-      <li>
-        <div class="carousel-card"> 
-          <div class="card-image2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= restaurant.photo_url%>)">
-            <p class="carousel-card-name"><%= restaurant.name %></p>
-          </div>
-        
-          <div class="carousel-card-rating">
-            <p><%= star_rating(restaurant.rating)%></p>  
-          </div>
-
-        </div>
-      </li>
-    <% end %>
+    <%= render partial: 'restaurants/card', collection: @restaurants.first(9), as: :restaurant, locals: { favorite: nil } %>
   </ul>
 </div>
 

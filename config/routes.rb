@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'chats/index'
   devise_for :users
 
   resources :restaurants, only: [:index, :show] do
@@ -13,9 +14,8 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
-  Rails.application.routes.draw do
-    get '/api', to: 'api#index'
-  end
+  get 'chats/index'
+  get '/api', to: 'api#index'
   # Defines the root path route ("/")
   # root "posts#index"
 
@@ -26,4 +26,9 @@ Rails.application.routes.draw do
   get '/show', to: 'pages#show'
   get '/profile', to: 'profiles#show'
   get '/page_three', to: 'pages#page_three'
+
+  get 'chats', to: 'chats#index', as: :chat
+  get 'custom_restaurants', to: 'chats#custom_restaurants'
+
+
 end
