@@ -6,5 +6,11 @@ module ApplicationHelper
     stars.html_safe
   end
 
+  def price_display(price)
+    prices = ""
+    price.to_i.times { prices += "💸"}
+    prices.html_safe
+  end
+
 
 end

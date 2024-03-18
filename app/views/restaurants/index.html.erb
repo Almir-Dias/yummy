@@ -15,19 +15,17 @@
         <% @restaurants.each do |restaurant| %>
           <div class="restaurant-card">
             <div class="card-image">
-
               <%= link_to restaurant_path(restaurant) do %>
                   <%= image_tag restaurant.photo_url.present? ? restaurant.photo_url : 'Restaurant_aleatorio.jpeg' %>
               <% end %>
-
             </div>
             <div class="card-info">
               <h3>
                 <%= restaurant.name %>
               </h3>
-              <p class="carousel-card-rating">
-                Nota: <%= star_rating(restaurant.rating) %>
-                Preco: <%= restaurant.price %>
+              <p>
+                <p class="carousel-card-rating"><%= star_rating(restaurant.rating) %></p>
+                <p><%= price_display(restaurant.price) if restaurant.price.present? %></p>
               </p>
             </div>
           </div>

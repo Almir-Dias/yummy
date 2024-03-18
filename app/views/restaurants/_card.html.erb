@@ -1,4 +1,4 @@
-<%= link_to (restaurant.id ? restaurant_path(restaurant) : "#"), class: "restaurant-card" do %>
+<%= link_to (restaurant.id ? restaurant_path(restaurant) : "#"), class: "restaurant-card title-fav" do %>
   <% if restaurants_url.present?%>
     <div class="card-image">
       <%= image_tag restaurant.photo_url || "" %>
@@ -14,7 +14,7 @@
         </object>
       </div>
     <% end %>
-    <div class="pl-4">
+    <div class="pl-4 ">
       <%= restaurant.name %>
     </div>
   </div>
