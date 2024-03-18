@@ -15,8 +15,10 @@ class PagesController < ApplicationController
       @restaurants = @restaurants.joins(:cuisines).where(cuisines: @cuisine)
     end
 
-    @restaurants = @restaurants.order(rating: :desc)
+    @restaurants = @restaurants.order(rating: :desc).order("random()") 
     @cuisines = Cuisine.all
     @animate = :home
+  
+
   end
 end
