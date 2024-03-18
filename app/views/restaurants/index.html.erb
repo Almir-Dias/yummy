@@ -25,9 +25,9 @@
               <h3>
                 <%= restaurant.name %>
               </h3>
-              <p>
-                Nota: <%= restaurant.rating %>
-                Preco: <%= restaurant.price %>
+              <p class="carousel-card-rating">
+                Nota:<%= star_rating(restaurant.rating)%>
+                Preço: <%= restaurant.price %>
               </p>
             </div>
           </div>

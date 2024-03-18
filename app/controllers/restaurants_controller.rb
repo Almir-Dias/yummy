@@ -53,5 +53,15 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
+    @descriptions = ["Um restaurante que se destaca por seus pratos exuberantemente coloridos e artisticamente apresentados, onde cada mordida é uma experiência sensorial que combina sabores, texturas e aromas de forma harmoniosa.",
+    "Um estabelecimento conhecido por sua abordagem inovadora na culinária, onde os chefs são verdadeiros artistas, transformando ingredientes simples em obras-primas gastronômicas, surpreendendo os paladares mais exigentes.",
+    "Um local onde a tradição se encontra com a criatividade, oferecendo uma seleção de pratos clássicos reinventados com um toque moderno, mantendo o sabor autêntico e a qualidade dos ingredientes frescos.",
+    "Um restaurante que celebra a diversidade culinária, apresentando uma variedade de pratos inspirados em diferentes culturas e regiões do mundo, proporcionando uma experiência gastronômica global sem sair da mesa.",
+    "Um espaço onde a simplicidade é elevada à perfeição, com uma seleção cuidadosamente elaborada de pratos que destacam ingredientes locais e sazonais, oferecendo uma culinária honesta e reconfortante.",
+    "Um lugar onde a gastronomia é uma forma de arte, com pratos elaborados com maestria e apresentados com elegância, proporcionando uma experiência culinária que é ao mesmo tempo visualmente deslumbrante e deliciosamente satisfatória.",
+    "Um restaurante que valoriza a qualidade acima de tudo, oferecendo uma seleção de pratos que são preparados com os melhores ingredientes disponíveis, garantindo um sabor excepcional em cada garfada.",
+    "Um espaço que celebra a criatividade na cozinha, apresentando uma variedade de pratos que desafiam as convenções culinárias tradicionais, explorando novas combinações de sabores e técnicas de preparo.",
+    "Um estabelecimento onde a paixão pela comida é evidente em cada detalhe, desde a seleção dos ingredientes até a apresentação dos pratos, oferecendo uma experiência gastronômica que é tanto emocionante quanto deliciosa.",
+    "Um restaurante que busca inspiração na natureza, oferecendo uma culinária que reflete a abundância e diversidade dos ingredientes locais, apresentando pratos que são uma celebração dos sabores e texturas encontrados na terra e no mar."]
   end
 end
