@@ -8,7 +8,7 @@
   align-items: center;
   display: flexbox;
   flex-direction: column;
-
+  width: 96%;
   }
 
 .restaurant-card {
@@ -139,4 +139,12 @@ border-radius: 3px;
   z-index: 1001;
   transition: visibility 1s, opacity 2s, linear;
   animation: fade-in 1s;
+}
+
+.title-fav{
+
+  margin-left: -16px;
+  margin-top: 0;
+  margin-bottom: 1rem;
+
 }

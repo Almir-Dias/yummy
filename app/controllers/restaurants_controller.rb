@@ -13,7 +13,7 @@ class RestaurantsController < ApplicationController
 
     if params[:cuisine_id].present?
       @cuisine = Cuisine.find(params[:cuisine_id])
-      @restaurants = @restaurants.joins(:cuisines).where(cuisines: @cuisine)
+      @restaurants = @restaurants.joins(:cuisine).where(cuisine: @cuisine)
     end
 
 
