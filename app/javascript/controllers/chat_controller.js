@@ -26,7 +26,7 @@ export default class extends Controller {
     const restaurantsData = await restaurantsResponse.text();
 
     this.loadingTarget.classList.add('d-none');
-    this.weatherTarget.innerText= "Essas são as recomendações para você!";
+    this.weatherTarget.innerText= "Encontrei alguns restaurantes para você. Bom apetite! 😋";
     this.containerTarget.classList.remove('h-100');
     this.listTarget.innerHTML = restaurantsData;
   }

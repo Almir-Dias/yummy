@@ -1,6 +1,6 @@
 
 .modal-card {
-    background-color: #e6e6e6;
+    background-color: #ffa565;
     min-height: 110vh;
     min-width: 100%;
     margin: 57vh auto;
@@ -35,6 +35,7 @@
 
 
 .modal-card-done {
+  font-size: 1.25em;
   color: #e6e6e6;
   text-align: center;
   font-size: 31px;
@@ -42,7 +43,7 @@
   border-radius: 21px;
   background-color: #ff7c33;
   margin-left: 322px;
-  box-shadow: -4px 2px 22px rgba(0, 0, 0, 1.5);
+
 }
 
 
@@ -58,19 +59,24 @@
 
 }
 
+.btn {
+  border-color: #ffffff !important;
+  margin-left: 32px;
+}
 
 .btn-primary {
+
   --bs-btn-color: #fff;
-  --bs-btn-bg: #0D6EFD;
-  --bs-btn-border-color: #0D6EFD;
+  --bs-btn-bg: #ff7300;
+  --bs-btn-border-color: #ffffff;
   --bs-btn-hover-color: #fff;
   --bs-btn-hover-bg: #0b5ed7;
-  --bs-btn-hover-border-color: #0a58ca;
+  --bs-btn-hover-border-color: #ffffff;
   --bs-btn-focus-shadow-rgb: 49, 132, 253;
   --bs-btn-active-color: #fff;
   --bs-btn-active-bg: #0a58ca;
-  --bs-btn-active-border-color: #0a53be;
-  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-active-border-color: #ffffff;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(255, 255, 255, 0.125);
   --bs-btn-disabled-color: #fff;
   --bs-btn-disabled-bg: #0D6EFD;
   --bs-btn-disabled-border-color: #0D6EFD;
@@ -90,15 +96,23 @@
   background-color: #ffffff !important;
   cursor: pointer !important;
   display: inline-block !important;
-  font-size: 0.7rem !important;
+  font-size: 1.2rem !important;
   border-radius: 50rem !important;
   padding: 0.1rem 0.5rem !important;
   color: #000000 !important;
   border: 1px solid #ffffff !important;
+  margin-left: 0.6rem !important;
   margin-right: 0.6rem !important;
-  margin-bottom: 0.4rem !important;
+  margin-bottom: 0.6rem !important;
 }
 
 .tags-wrapper input:checked {
   background-color: red !important;
+}
+
+.text-center {
+  font-weight: 500;
+  margin-bottom: 25px;
+  font-family: Montserrat;
+  font-size: 23px;
 }

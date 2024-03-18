@@ -1,12 +1,12 @@
 class ChatsController < ApplicationController
   skip_before_action :verify_authenticity_token
-  
+
   def index
   end
-  
+
   def ai_recommendation
     longitude = params["longitude"]
-    latitude = params["latitude"] 
+    latitude = params["latitude"]
     @weather = fetch_weather(latitude, longitude)
 
     if @weather
@@ -26,7 +26,7 @@ class ChatsController < ApplicationController
       end
     end
   end
-  
+
   def custom_restaurants
     client = GooglePlaces::Client.new(ENV['GOOGLE_API_KEY'])
     longitude = params["longitude"]
@@ -93,12 +93,12 @@ class ChatsController < ApplicationController
       data = JSON.parse(response.body)
       weather_description = data['current']['condition']['text']
       temperature = data['current']['temp_c']
-      "O tempo em São Paulo está #{weather_description.downcase} com temperatura de #{temperature}°C."
+      "Olá! Está #{weather_description.downcase} em São Paulo e a temperatura é de #{temperature}°C. Para o dia de hoje, indico comidas mais leves e drinks refrescantes."
     else
       nil
     end
   end
-  
+
   def generate_response(weather_prompt)
     cuisines = Cuisine.all
     possible_cuisines = cuisines.map do |cuisine|
@@ -106,15 +106,15 @@ class ChatsController < ApplicationController
     end
     possible_cuisines = possible_cuisines.join(', ')
     client = OpenAI::Client.new
-    possible_cuisines.tr(" ", "").split(',')  
-    begin  
+    possible_cuisines.tr(" ", "").split(',')
+    begin
       chaptgpt_response = client.chat(parameters: {
         model: "gpt-3.5-turbo",
         messages: [{ role: "user", content: "#{weather_prompt}. Sabendo disso, quais dessas opções de restaurantes, e apenas essas opções e mais nenhuma que não sejam essas, são as mais ideais a serem visitadas? #{possible_cuisines}. Eu quero que você me retorne apenas uma array com as opções ideais, sem mais nenhum texto adicional."}]
       })
       chaptgpt_response["choices"][0]["message"]["content"].tr("/\"[]' ", "").split(',')
     rescue
-      possible_cuisines.tr(" ", "").split(',') 
+      possible_cuisines.tr(" ", "").split(',')
     end
   end
 end
