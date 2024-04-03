@@ -93,7 +93,7 @@ class ChatsController < ApplicationController
       data = JSON.parse(response.body)
       weather_description = data['current']['condition']['text']
       temperature = data['current']['temp_c']
-      "Olá! Está #{weather_description.downcase} em São Paulo e a temperatura é de #{temperature}°C. Para o dia de hoje, indico comidas mais leves e drinks refrescantes."
+      "Olá! Está #{weather_description.downcase} em São Paulo e a temperatura é de #{temperature}°C. Estou buscando alguns restaurantes interessantes nas redondezas."
     else
       nil
     end
